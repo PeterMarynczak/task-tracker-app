@@ -6,10 +6,10 @@ function startPause(){
 	if(running == 0){
 		running = 1;
 		increment();
-		document.getElementById("startPause").innerHTML = "<i class='glyphicon glyphicon-pause'></i> Pause";
+		document.getElementById("startPause").innerHTML = "<i class='glyphicon glyphicon-pause'></i> Pauza";
 	}else{
 		running = 0;
-		document.getElementById("startPause").innerHTML = "<i class='glyphicon glyphicon-repeat'></i> Resume";
+		document.getElementById("startPause").innerHTML = "<i class='glyphicon glyphicon-repeat'></i> Kontynuuj";
 		}
 }
 

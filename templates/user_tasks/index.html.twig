@@ -9,30 +9,56 @@
 	{% endfor %}
 
 
-	<div class="container">
-		<div class="timer-header">
-			<h1>
-				Stopwatch in Bootstrap Templates
-			</h1>
-			<div style="width:40%;">
-				<div class="alert alert-danger" role="alert">
-					<p id="stopWatchDisplay">Rozpocznij pracę</p>
+	<section class="contactus" id="contact">
+		<div class="container">
+			<div class="row mb-5 pb-5">
+				<div class="col-sm-5" data-aos="fade-up" data-aos-offset="-500">
+
+					<div class="container">
+						<div class="page-header">
+							<h3 class="font-weight-medium text-dark mt-5 mt-lg-0">
+								Zacznij swoją pracę
+							</h3>
+							<div style="width:40%;">
+								<div class="alert alert-danger" role="alert">
+									<p id="stopWatchDisplay">Monitor Czasu</p>
+								</div>
+								<div id="controls">
+									<button class="btn btn-danger" id="startPause" onclick="startPause()">
+										<i class="glyphicon glyphicon-play"></i>
+										Start</button>
+									<button class="btn btn-warning" onclick="reset()">
+										<i class="glyphicon glyphicon-refresh"></i>
+										Reset</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
 				</div>
-				<div id="controls">
-					<button class="btn btn-danger" id="startPause" onclick="startPause()">
-						<i class="glyphicon glyphicon-play"></i>
-						Start</button>
-					<button class="btn btn-warning" onclick="reset()">
-						<i class="glyphicon glyphicon-refresh"></i>
-						Reset</button>
+				<div class="col-sm-7" data-aos="fade-up" data-aos-offset="-500">
+					<h3 class="font-weight-medium text-dark mt-5 mt-lg-0">AKTUALNE ZADANIE</h3>
+					<h5 class="text-dark mb-5">Napisz nad czym pracowałeś</h5>
+					<form>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<textarea name="message" id="message" class="form-control" placeholder="Opis Twojej pracy*" rows="5"></textarea>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<a href="#" class="btn btn-secondary">ZAPISZ</a>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
-{% block javascript %}
-    <script src="{{asset('javascript/timer.js')}}"></script>
-{% endblock %}
+	{% block javascript %}
+		<script src="{{asset('javascript/timer.js')}}"></script>
+	{% endblock %}
 
 {% endblock %}
 

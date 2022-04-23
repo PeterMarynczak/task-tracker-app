@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserTasksController extends AbstractController
 {
-    #[Route('/user/tasks', name: 'app_user_tasks')]
+    #[Route('/user_tasks', name: 'user_tasks')]
     public function index(): Response
     {
         return $this->render('user_tasks/index.html.twig');
