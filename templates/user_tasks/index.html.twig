@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success text-center">
+			<h4>{{ message }}</h4>
+		</div>
+	{% endfor %}
+
+
+	<div class="container">
+		<div class="timer-header">
+			<h1>
+				Stopwatch in Bootstrap Templates
+			</h1>
+			<div style="width:40%;">
+				<div class="alert alert-danger" role="alert">
+					<p id="stopWatchDisplay">Rozpocznij pracę</p>
+				</div>
+				<div id="controls">
+					<button class="btn btn-danger" id="startPause" onclick="startPause()">
+						<i class="glyphicon glyphicon-play"></i>
+						Start</button>
+					<button class="btn btn-warning" onclick="reset()">
+						<i class="glyphicon glyphicon-refresh"></i>
+						Reset</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% block javascript %}
+    <script src="{{asset('javascript/timer.js')}}"></script>
+{% endblock %}
+
+{% endblock %}
+
