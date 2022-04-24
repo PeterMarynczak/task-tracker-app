@@ -22,7 +22,7 @@ security:
             provider: app_user_provider
             custom_authenticator: App\Security\AppCustomAuthenticator
             logout:
-                path: app_logout
+                path: logout
                 # where to redirect after logout
                 # target: app_any_route
 
@@ -36,7 +36,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-         - { path: ^/, roles: ROLE_USER }
+         - { path: ^/user_tasks, roles: ROLE_USER }
 
 when@test:
     security:

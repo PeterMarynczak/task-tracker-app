@@ -39,15 +39,16 @@
 				<div class="col-sm-7" data-aos="fade-up" data-aos-offset="-500">
 					<h3 class="font-weight-medium text-dark mt-5 mt-lg-0">AKTUALNE ZADANIE</h3>
 					<h5 class="text-dark mb-5">Napisz nad czym pracowałeś</h5>
-					<form>
+					<form action="{{ path('task_create') }}" method="POST">
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="form-group">
-									<textarea name="message" id="message" class="form-control" placeholder="Opis Twojej pracy*" rows="5"></textarea>
+									<textarea name="task-subject" id="task-subject" class="form-control" placeholder="Opis Twojej pracy*" rows="5"></textarea>
+									<input type="hidden" id="amount_of_time" name="amount_of_time" value="">
 								</div>
 							</div>
 							<div class="col-sm-12">
-								<a href="#" class="btn btn-secondary">ZAPISZ</a>
+								<a href= "{{ path('task_create') }}" class="btn btn-secondary mt-3 text-white" type="submit">ZAPISZ</a>
 							</div>
 						</div>
 					</form>
@@ -55,6 +56,7 @@
 			</div>
 		</div>
 	</section>
+
 
 	{% block javascript %}
 		<script src="{{asset('javascript/timer.js')}}"></script>

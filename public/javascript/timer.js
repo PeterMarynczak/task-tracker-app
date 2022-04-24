@@ -35,6 +35,7 @@ function increment(){
 				secs = "0" + secs;
 			}
 			document.getElementById("stopWatchDisplay").innerHTML = mins+ ":" +secs+ ":" + "0" +tenths;
+			document.getElementById("amount_of_time").innerHTML = mins+ ":" +secs+ ":" + "0" +tenths;
 			increment();
 		},100);
 	}
