@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\TasksAssignedForUser;
-use DateTimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,8 +17,8 @@ class UserTasksController extends AbstractController
 
     public function createTask(Request $request)
     {
-        $taskCreatedByUser = new TasksAssignedForUser();
-        $taskCreatedByUser->setTaskSubject('Adding Login option to website');
+        //$taskCreatedByUser = new TasksAssignedForUser();
+        //$taskCreatedByUser->setTaskSubject('Adding Login option to website');
         //$taskCreatedByUser->setStartDateOfTheTask();
         //$taskCreatedByUser->setFinishDateOfTheTask();
     }
