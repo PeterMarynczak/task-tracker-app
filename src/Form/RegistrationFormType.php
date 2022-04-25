@@ -16,16 +16,16 @@ class RegistrationFormType extends AbstractType
     {
         $builder
         ->add('username', TextType::class, [
-        'label' => 'Username'
+        'label' => 'Użytkownik'
     ])
     ->add('password', RepeatedType::class, [
         'type' => PasswordType::class,
         'required' => true,
-        'first_options' => ['label' => 'Password'],
-        'second_options' => ['label' => 'Password Repeat']
+        'first_options' => ['label' => 'Hasło'],
+        'second_options' => ['label' => 'Powtórz hasło']
     ])
 
-    ->add('registration', SubmitType::class)
+    ->add('Rejestracja', SubmitType::class)
 
         ;
     }

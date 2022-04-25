@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
 {% form_theme registrationForm 'bootstrap_4_layout.html.twig' %}
 {% block body %}
-<br>
-    <div class="container">
+	<br>
+	<section class="contactus">
+		<div class="container">
+			<div class="container">
 
-    <h3>Registration</h3>
-<br>
+				<h3 class="text-center">Rejestracja</h3>
+				<br>
 
-    {{form(registrationForm)}}
+				{{form(registrationForm)}}
 
-    </div>
+				</div>
+			</section>
 {% endblock %}
-

@@ -14,16 +14,16 @@ class TasksAssignedForUser
     private $id;
 
     #[ORM\Column(type: 'text')]
-    private $task_subject;
+    public $task_subject;
 
     #[ORM\Column(type: 'integer')]
-    private $id_of_user_who_created_the_task;
+    public $id_of_user_who_created_the_task;
 
     #[ORM\Column(type: 'string', length: 20)]
-    private $time_spent_on_the_task;
+    public $time_spent_on_the_task;
 
     #[ORM\Column(type: 'string', length: 20)]
-    private $date_when_task_was_created;
+    public $date_when_task_was_created;
 
     public function getId(): ?int
     {

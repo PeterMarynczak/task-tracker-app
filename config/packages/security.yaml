@@ -37,6 +37,7 @@ security:
     access_control:
          - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
          - { path: ^/user_tasks, roles: ROLE_USER }
+         - { path: ^/dash_board, roles: ROLE_USER }
 
 when@test:
     security:

@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\TasksAssignedForUser;
-use App\Entity\User;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,8 +40,7 @@ class UserTasksController extends AbstractController
 
         $this->addFlash('success', 'Praca została zapisana pomyślnie');
 
-        return $this->redirectToRoute('user_tasks');
-        return new RedirectResponse($this->urlGenerator->generate('user_tasks'));
+        return $this->redirectToRoute('dash_board');
     }
 
 }

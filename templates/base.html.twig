@@ -37,25 +37,25 @@
 							</a>
 						</li>
 						{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path ('user_tasks') }}">Dodaj zadanie</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#about">Historia pracy</a>
-						</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path ('user_tasks') }}">Dodaj zadanie</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path ('dash_board') }}">Historia pracy</a>
+							</li>
 						{% endif %}
 						{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path ('logout') }}">Wyloguj</a>
-						</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path ('logout') }}">Wyloguj</a>
+							</li>
 						{% endif %}
 						{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-						<li class="nav-item">
-							<a class="nav-link btn btn-success" href="{{ path ('login') }}">Logowanie</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link btn btn-danger" href="{{ path ('registration') }}">Rejestracja</a>
-						</li>
+							<li class="nav-item">
+								<a class="nav-link btn btn-success" href="{{ path ('login') }}">Logowanie</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link btn btn-danger" href="{{ path ('registration') }}">Rejestracja</a>
+							</li>
 						{% endif %}
 					</ul>
 				</div>
@@ -64,7 +64,7 @@
 
 		{% block body %}{% endblock %}
 
-		<footer class="footer">
+		<footer class="footer fixed-bottom">
 			<div class="footer-bottom">
 				<div class="container">
 					<div class="d-flex justify-content-between align-items-center">
@@ -86,5 +86,13 @@
 			</div>
 		</div>
 	</body>
-</html></body></html></footer><script src="{{asset('vendors/base/vendor.bundle.base.js')}}"></script><script src="{{asset('vendors/owl.carousel/js/owl.carousel.js')}}"></script><script src="{{asset('vendors/aos/js/aos.js')}}"></script><script src="{{asset('vendors/jquery-flipster/js/jquery.flipster.min.js')}}"></script><script src="{{asset('js/template.js')}}"></script></body></html>
+</html>
+</footer>
+<!--====== Javascripts & Jquery ======-->
+<script src="{{asset('vendors/base/vendor.bundle.base.js')}}"></script>
+<script src="{{asset('vendors/owl.carousel/js/owl.carousel.js')}}"></script>
+<script src="{{asset('vendors/aos/js/aos.js')}}"></script>
+<script src="{{asset('vendors/jquery-flipster/js/jquery.flipster.min.js')}}"></script>
+<script src="{{asset('js/template.js')}}"></script>
+</body></html>
 
