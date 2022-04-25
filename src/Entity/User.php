@@ -26,12 +26,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
-    #[ORM\OneToMany(mappedBy: 'tasksAssignedForUser', targetEntity: TasksAssignedForUser::class)]
-    private $tasksAssignedForUser;
-
     public function __construct()
     {
-        $this->tasksAssignedForUser = new ArrayCollection();
+        $this->tasks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -121,30 +118,61 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, TasksAssignedForUser>
      */
-    public function getTasksAssignedForUser(): Collection
+    public function getTaskAssignedForUser(): Collection
     {
-        return $this->tasksAssignedForUser;
+        return $this->taskAssignedForUser;
     }
 
-    public function addTasksAssignedForUser(TasksAssignedForUser $tasksAssignedForUser): self
+    public function addTaskAssignedForUser(TasksAssignedForUser $taskAssignedForUser): self
     {
-        if (!$this->tasksAssignedForUser->contains($tasksAssignedForUser)) {
-            $this->tasksAssignedForUser[] = $tasksAssignedForUser;
-            $tasksAssignedForUser->setTasksAssignedForUser($this);
+        if (!$this->taskAssignedForUser->contains($taskAssignedForUser)) {
+            $this->taskAssignedForUser[] = $taskAssignedForUser;
+            $taskAssignedForUser->setRelation($this);
         }
 
         return $this;
     }
 
-    public function removeTasksAssignedForUser(TasksAssignedForUser $tasksAssignedForUser): self
+    public function removeTaskAssignedForUser(TasksAssignedForUser $taskAssignedForUser): self
     {
-        if ($this->tasksAssignedForUser->removeElement($tasksAssignedForUser)) {
+        if ($this->taskAssignedForUser->removeElement($taskAssignedForUser)) {
             // set the owning side to null (unless already changed)
-            if ($tasksAssignedForUser->getTasksAssignedForUser() === $this) {
-                $tasksAssignedForUser->setTasksAssignedForUser(null);
+            if ($taskAssignedForUser->getRelation() === $this) {
+                $taskAssignedForUser->setRelation(null);
             }
         }
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, TasksAssignedForUser>
+     */
+    public function getTasks(): Collection
+    {
+        return $this->tasks;
+    }
+
+    public function addTask(TasksAssignedForUser $task): self
+    {
+        if (!$this->tasks->contains($task)) {
+            $this->tasks[] = $task;
+            $task->setIdOfUserWhoCreatedTask($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTask(TasksAssignedForUser $task): self
+    {
+        if ($this->tasks->removeElement($task)) {
+            // set the owning side to null (unless already changed)
+            if ($task->getIdOfUserWhoCreatedTask() === $this) {
+                $task->setIdOfUserWhoCreatedTask(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

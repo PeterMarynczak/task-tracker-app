@@ -25,10 +25,6 @@ class TasksAssignedForUser
     #[ORM\Column(type: 'string', length: 20)]
     private $date_when_task_was_created;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'tasksAssignedForUsers')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $user;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -78,18 +74,6 @@ class TasksAssignedForUser
     public function setDateWhenTaskWasCreated(string $date_when_task_was_created): self
     {
         $this->date_when_task_was_created = $date_when_task_was_created;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }
