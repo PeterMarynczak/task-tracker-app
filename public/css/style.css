@@ -10796,12 +10796,16 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #3c37f1;
   border-color: #3c37f1;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .btn-primary:hover {
   color: #fff;
   background-color: #1913ee;
   border-color: #1610e5;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .btn-primary:focus, .btn-primary.focus {

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<form method="post">
+	
+		<br>
+		<section class="contactus">
+			<div class="container">
+
+				<h3 class="text-center">Logowanie</h3>
+				<br>
+				<label for="inputUsername">Nazwa Użytkownika</label>
+				<input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+
+				<label for="inputPassword">Hasło</label>
+				<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+                {% if error %}
+					
+						<div class="alert alert-danger text-center">{{ 'Dane są nieprawidłowe, spróbuj ponownie' }}</div>
+					
+				{% endif %}
+
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+				<br>
+				<button class="btn btn-lg btn-primary" type="submit">
+					Login
+				</button>
+			</form>
+		</section>>
+
+	{% endblock %}
+

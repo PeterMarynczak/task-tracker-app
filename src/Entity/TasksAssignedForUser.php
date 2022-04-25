@@ -13,20 +13,17 @@ class TasksAssignedForUser
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $task_subject;
+    #[ORM\Column(type: 'text')]
+    public $task_subject;
 
     #[ORM\Column(type: 'integer')]
-    private $id_of_user_who_created_the_task;
+    public $id_of_user_who_created_the_task;
 
-    #[ORM\Column(type: 'time')]
-    private $time_spent_on_the_task;
+    #[ORM\Column(type: 'string', length: 20)]
+    public $time_spent_on_the_task;
 
-    #[ORM\Column(type: 'datetime')]
-    private $start_date_of_the_task;
-
-    #[ORM\Column(type: 'datetime')]
-    private $finish_date_of_the_task;
+    #[ORM\Column(type: 'string', length: 20)]
+    public $date_when_task_was_created;
 
     public function getId(): ?int
     {
@@ -57,39 +54,28 @@ class TasksAssignedForUser
         return $this;
     }
 
-    public function getTimeSpentOnTheTask(): ?\DateTimeInterface
+    public function getTimeSpentOnTheTask(): ?string
     {
         return $this->time_spent_on_the_task;
     }
 
-    public function setTimeSpentOnTheTask(\DateTimeInterface $time_spent_on_the_task): self
+    public function setTimeSpentOnTheTask(string $time_spent_on_the_task): self
     {
         $this->time_spent_on_the_task = $time_spent_on_the_task;
 
         return $this;
     }
 
-    public function getStartDateOfTheTask(): ?\DateTimeInterface
+    public function getDateWhenTaskWasCreated(): ?string
     {
-        return $this->start_date_of_the_task;
+        return $this->date_when_task_was_created;
     }
 
-    public function setStartDateOfTheTask(\DateTimeInterface $start_date_of_the_task): self
+    public function setDateWhenTaskWasCreated(string $date_when_task_was_created): self
     {
-        $this->start_date_of_the_task = $start_date_of_the_task;
+        $this->date_when_task_was_created = $date_when_task_was_created;
 
         return $this;
     }
 
-    public function getFinishDateOfTheTask(): ?\DateTimeInterface
-    {
-        return $this->finish_date_of_the_task;
-    }
-
-    public function setFinishDateOfTheTask(\DateTimeInterface $finish_date_of_the_task): self
-    {
-        $this->finish_date_of_the_task = $finish_date_of_the_task;
-
-        return $this;
-    }
 }

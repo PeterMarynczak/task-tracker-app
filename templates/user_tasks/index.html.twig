@@ -2,23 +2,24 @@
 
 {% block body %}
 
-	{% for message in app.flashes('success') %}
-		<div class="alert alert-success text-center">
-			<h4>{{ message }}</h4>
-		</div>
-	{% endfor %}
-
 
 	<section class="contactus" id="contact">
 		<div class="container">
 			<div class="row mb-5 pb-5">
 				<div class="col-sm-5" data-aos="fade-up" data-aos-offset="-500">
 
+					{% for message in app.flashes('success') %}
+						<div class="container">
+							<div class="alert alert-success text-center">
+								<h4>{{ message }}</h4>
+							</div>
+						</div>
+					{% endfor %}
 					<div class="container">
 						<div class="page-header">
-							<h3 class="font-weight-medium text-dark mt-5 mt-lg-0">
+							<h4 class="font-weight-medium text-dark mt-5 mt-lg-0">
 								Zacznij swoją pracę
-							</h3>
+							</h4>
 							<div style="width:40%;">
 								<div class="alert alert-danger" role="alert">
 									<p id="stopWatchDisplay">Monitor Czasu</p>
@@ -37,17 +38,18 @@
 					</div>
 				</div>
 				<div class="col-sm-7" data-aos="fade-up" data-aos-offset="-500">
-					<h3 class="font-weight-medium text-dark mt-5 mt-lg-0">AKTUALNE ZADANIE</h3>
+					<h4 class="font-weight-medium text-dark mt-5 mt-lg-0">AKTUALNE ZADANIE</h4>
 					<h5 class="text-dark mb-5">Napisz nad czym pracowałeś</h5>
-					<form>
+					<form action="{{ path('task_create') }}" method="POST">
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="form-group">
-									<textarea name="message" id="message" class="form-control" placeholder="Opis Twojej pracy*" rows="5"></textarea>
+									<textarea name="task-subject" id="task-subject" class="form-control" placeholder="Opis Twojej pracy*" rows="3" required="required"></textarea>
+									<input type="hidden" class="form-control" id="amount_of_time" name="amount_of_time" value="">
 								</div>
 							</div>
 							<div class="col-sm-12">
-								<a href="#" class="btn btn-secondary">ZAPISZ</a>
+								<button class="btn btn-secondary mt-3 text-white" type="submit">ZAPISZ</button>
 							</div>
 						</div>
 					</form>
@@ -55,6 +57,7 @@
 			</div>
 		</div>
 	</section>
+
 
 	{% block javascript %}
 		<script src="{{asset('javascript/timer.js')}}"></script>
